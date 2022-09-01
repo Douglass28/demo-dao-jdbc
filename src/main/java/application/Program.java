@@ -7,6 +7,7 @@ import model.entities.Seller;
 import model.impl.SellerDaoJDBC;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 
@@ -32,5 +33,11 @@ public class Program {
         for (Seller obg : list){
             System.out.println(obg);
         }
+
+        System.out.println("======= \n TESTE 4: seller insert =========");
+        Seller seller1 = new Seller(10, "redbul", "red@gmail.com", new Date(), 4000.0, department);
+        sellerDao.insert(seller1);
+        System.out.println(seller1);
+        System.out.println("insert ok!, new Id :" + seller1.getId());
     }
 }
