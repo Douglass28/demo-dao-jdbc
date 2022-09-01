@@ -9,12 +9,13 @@ import model.impl.SellerDaoJDBC;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Program {
     public static void main(String[] args) throws SQLException {
 
-
+        Scanner sc = new Scanner(System.in);
         SellerDao sellerDao = DaoFactory.creatSellerDao();
 
         System.out.println("======= TESTE 1: seller findById =========");
@@ -45,5 +46,13 @@ public class Program {
         seller.setName("camila");
         sellerDao.update(seller);
         System.out.println("update completed..");
+
+        System.out.println("======= \n TESTE 6: seller delete =========");
+        System.out.println("Enter id for delete test: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("delete completed");
+
+        sc.close();
     }
 }
